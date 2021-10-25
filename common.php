@@ -2921,5 +2921,8 @@ function render_list($path = '', $files = [])
     $tmp = splitfirst($html, '</title>');
     $html = $tmp[0] . '</title>' . $authinfo . $tmp[1];
     //if (isset($_SERVER['Set-Cookie'])) return output($html, $statusCode, [ 'Set-Cookie' => $_SERVER['Set-Cookie'], 'Content-Type' => 'text/html' ]);
+    $html .= '<pre>'. json_encode($files, JSON_PRETTY_PRINT).'</pre>';
+    $html .= $path . "<br>\n";
+    $html .= $path1 . "<br>\n";
     return output($html, $statusCode);
 }
